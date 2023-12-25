@@ -26,6 +26,7 @@ public class DDAAlgorithm extends JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 points.add(e.getPoint());
+                 drawDDALine(points.get(0).x, points.get(0).y, points.get(1).x, points.get(1).y, drawingPanel.getGraphics());
                     repaint();      
             }
         });
@@ -33,9 +34,9 @@ public class DDAAlgorithm extends JFrame {
         getContentPane().add(drawingPanel);
     }
 
-    private void drawDDALine( Graphics g) {
+    private void drawDDALine( int x1, int y1, int x2, int y2,Graphics g,Graphics g) {
         g.setColor(Color.RED);
-        int x1 = 0;int y1 = 0 ;int x2 = 0;int y2 = 0;
+        
         int dx = x2 - x1;
         int dy = y2 - y1;
         int steps = Math.max(Math.abs(dx), Math.abs(dy));
